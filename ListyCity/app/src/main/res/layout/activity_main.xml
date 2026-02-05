@@ -1,27 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:padding="6dp">
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/buttonAddCity"
-        android:text="Add City"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="10dp"/>
-
-    <ListView
-        android:id="@+id/listviewCities"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAddCity" />
+        android:fillViewport="true">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/city_name_edit"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:hint="City Name"
+                android:inputType="textCapWords"
+                android:autofillHints="addressLocality"
+                android:minHeight="48dp"
+                android:maxLength="15"
+                android:ellipsize="end"
+                tools:ignore="HardcodedText,TextContrastCheck,TextFields" />
+
+            <EditText
+                android:id="@+id/province_name_edit"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:hint="Province"
+                android:inputType="textCapWords"
+                android:autofillHints="addressRegion"
+                android:minHeight="48dp"
+                android:maxLength="15"
+                android:ellipsize="end"
+                tools:ignore="HardcodedText,TextContrastCheck,TextFields" />
+
+            <Button
+                android:id="@+id/add_city_button"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:text="Add"
+                android:minHeight="48dp"
+                android:minWidth="48dp"
+                tools:ignore="HardcodedText,TouchTargetSizeCheck" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ListView
+        android:id="@+id/city_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:ignore="UselessLeaf,NestedWeights" />
+
+    <TextView
+        android:id="@+id/swipe_hint_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="◄◄ Swipe to Delete ►►"
+        android:textAlignment="center"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:background="?attr/colorPrimary"
+        android:gravity="center"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>

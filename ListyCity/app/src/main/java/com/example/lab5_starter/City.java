@@ -1,33 +1,26 @@
 package com.example.lab5_starter;
+import androidx.annotation.NonNull;
 
-import java.io.Serializable;
+public class City {
+    private final String cityName;
+    private final String provinceName;
 
-// Movie object
-public class City implements Serializable {
-
-    // attributes
-    private String name;
-    private String province;
-
-    // constructor
-    public City(String name, String province) {
-        this.name = name;
-        this.province = province;
+    public City(String cityName, String provinceName) {
+        this.cityName = cityName;
+        this.provinceName = provinceName;
     }
 
-    public String getProvince() {
-        return province;
+    public String getCityName() {
+        return cityName;
     }
 
-    public void setProvince(String province) {
-        this.province = province;
+    public String getProvinceName() {
+        return provinceName;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    @NonNull
+    @Override
+    public String toString() {
+        return cityName + ", " + provinceName;
     }
 }
